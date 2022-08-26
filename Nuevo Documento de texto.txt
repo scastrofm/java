@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script  type="text/javascript" src="https://codesandbox.io/public/sse-hooks/sse-hooks.f742b80f43c5a2e0e619b0d97b5886cd.js"></script>
+    <script  type="text/javascript" src="https://codesandbox.io/static/js/banner.be879265d.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <h1>Tablas de multiplacar</h1>
+    <input
+      type="number"
+      id="inicial"
+      placeholder="desde la tabla "
+      min="0"
+      required="true"
+    />
+    <input
+      type="number"
+      id="final"
+      placeholder="hasta la tabla"
+      min="0"
+      required="true"
+    />
+    <br />
+    <br />
+    <input type="button" value="Calcular" onclick="calcular()" />
+
+    <script>
+      // let inicial = prompt("Dame el valor inicial", 0);
+      //let final = prompt("Dame el valor final", 0);
+
+      function calcular() {
+        let inicial = document.getElementById("inicial").value;
+        let final = document.getElementById("final").value;
+
+        parseInt(inicial);
+        parseInt(final);
+
+        if (inicial < final) {
+          for (inicial; inicial <= final; inicial++) {
+            tablas(inicial);
+          }
+
+          function tablas(numero) {
+            document.write("<h1>Tabla de multiplicar del " + numero + " </h1>");
+
+            for (i = 1; i <= 10; i++) {
+              document.write(
+                "<p>" + numero + "x " + i + "= " + numero * i + "</p>"
+              );
+            }
+          }
+        } else {
+          document.write(
+            "<h1 style ='color:red'>El valor inicial debe ser menor al valor final</h1>"
+          );
+        }
+      }
+    </script>
+    <script crossorigin type="text/javascript" src="https://codesandbox.io/static/js/watermark-button.be960f43b.js"></script>
+  </body>
+</html>
